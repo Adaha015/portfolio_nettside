@@ -1,0 +1,19 @@
+// C++ code
+//Definerer variabler
+const int potentiometer = A1;	//pot wiper kobelt til analog pin A1
+const int LED = 3;	// LED anode koblet til PWM pin 3
+
+void setup()
+{
+  //Definerer innganger og utganger
+  pinMode(potentiometer, INPUT);
+  pinMode(LED, OUTPUT);
+}
+
+void loop()
+
+{
+  int potVerdi = analogRead(potentiometer); //Leser verdien på A0
+  int skalertVerdi = map(potVerdi, 0, 1023, 0, 255); //Skalerer fra 0-1023 til 0-255
+  analogWrite(LED, skalertVerdi);
+}
